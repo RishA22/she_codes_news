@@ -1,0 +1,46 @@
+<!-- Edit StoryForm -->
+
+{% extends "base.html" %}
+{% load static %}
+{% block stylesheets %}
+<link rel="stylesheet" type="text/css" href="{% static 'news/styles.css' %}">
+{% endblock %}
+{% block content %}
+
+<div id="edit-story-form-wrapper">
+    <h2>Edit Story</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {{ form.non_field_errors }}
+
+        <div class="fieldWrapper">
+            {{ form.title.label_tag }}
+            {{ form.title }}
+            {{ form.title.errors }}
+        </div>
+
+        <div class="fieldWrapper">
+            {{ form.pub_date.label_tag }}
+            {{ form.pub_date }}
+            {{ form.pub_date.errors }}
+        </div>
+
+        <div class="fieldWrapper">
+            {{ form.image.label_tag }}
+            {{ form.image }}
+            {{ form.image.errors }}
+        </div>
+
+        <div class="fieldWrapper">
+            {{ form.content.label_tag }}
+            {{ form.content }}
+            {{ form.content.errors }}
+        </div>
+
+        <button type="submit">Save Changes</button>
+    </form>
+    <a href="{% url 'news:story' pk=story.pk %}">Cancel</a>
+</div>
+
+{% endblock %}

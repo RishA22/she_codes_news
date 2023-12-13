@@ -1,8 +1,45 @@
+<!-- news/templates/news/story.html -->
+{% extends "base.html" %}
+{% load static %}
+{% block stylesheets %}
+    <link rel="stylesheet" type="text/css" href="{% static 'news/styles.css'%}">
+{% endblock %}
+{% block content %}
+
 <div id="story-wrapper">
     <h2>{{ story.title }}</h2>
     <h4>{{ story.author }}</h4>
     <div id="story-content">
-        <img src="{% static '/news/images/placeholder-5.jpg' %}">
+        {% if story.image %}
+            <img src="{{story.image}}">
+        {% else %}
+            <img src="https://picsum.photos/600">
+        {% endif %}
+        <!-- <img src="{% static '/news/images/placeholder-5.jpg' %}"> -->
         {{ story.content|linebreaks }}
+        <!-- EditStoryFeature -->
+        <!-- EditStoryFeature - Show only if the user is authenticated -->
+        {% if user.is_authenticated %}
+            <a href="{% url 'news:edit_story' pk=story.pk %}">Edit Story</a>
+        {% endif %}
     </div>
+
+        <!-- CreateStoryFeature - Show only if the user is authenticated -->
+        {% if user.is_authenticated %}
+            <a href="{% url 'news:create_story' %}">Create Story</a>
+        {% endif %}
 </div>
+
+<!-- EditStoryFeature -->
+<!-- <div id="story-edit-wrapper">
+    <h2>Edit Story</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Changes</button>
+    </form>
+    <a href="{% url 'news:story' pk=story.pk %}">Cancel</a>
+</div> -->
+
+{% endblock %}
+

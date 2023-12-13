@@ -1,54 +1,64 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Subrayada:wght@700&display=swap");
 
 body {
-    background-color: rgb(240, 239, 239);
+  background-color:pink;
 }
 
 header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-bottom: 1px solid #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #000;
 }
 
-img {
-    filter: grayscale(100%);
-}
+/* img {
+  filter: grayscale(100%);
+} */
 
 h1 {
-    font-family: 'Montserrat Subrayada', sans-serif;
-    text-decoration: none;
-    font-size: 4rem;
-    margin: 0;
+  font-family: "Montserrat Subrayada", sans-serif;
+  text-decoration: none;
+  color: blueviolet;
+  font-size: 4rem;
+  margin: 0;
 }
 
 h2 {
-   font-family: 'Montserrat Subrayada', sans-serif; 
+  font-family: "Montserrat Subrayada", sans-serif;
 }
 
 h3 {
-    font-size: 2rem;
-    margin: 0;
+  font-size: 2rem;
+  margin: 0;
 }
 
 #header-text {
-    flex-basis: 80%;
-    display: flex;
+  flex-basis: 80%;
+  display: flex;
 }
 
 nav {
-    flex-basis: 20%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+  flex-basis: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
 }
 
 a {
-    margin: 2px;
-    text-decoration: none;
-    color: #000;
+  margin: 2px;
+  text-decoration: none;
+  color: #000;
 }
 
-a, p {
-    font-family: monospace;
+a,
+p {
+  font-family: monospace;
+}
+
+form{
+  background-color: aqua;
+}
+
+form p{
+  position: static;
 }

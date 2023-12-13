@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+
+    {% if user.is_authenticated %}
+    <!-- Show the form when the user is logged in -->
+        <form action="" method="post"> 
+        {% csrf_token %} 
+        {{ form.as_p }}
+        <input type="submit" value="submit">
+        </form>
+    {% else %}
+    <!-- Show a message when the user is not logged in -->
+        <p>You need to be logged in to create a new story. <a href="{% url 'login' %}">Login</a></p>
+    {% endif %}
+{% endblock %}

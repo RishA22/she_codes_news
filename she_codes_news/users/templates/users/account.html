@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Your Account Information</h2>
+    <p>Username: {{ user_profile.username }}</p>
+    <p>Email: {{ user_profile.email }}</p>
+<!-- Include other profile fields as needed -->
+
+<!-- Display links to the user's stories -->
+    <h3>Your Stories</h3>
+    {% for story in user_profile.newsstory_set.all %}
+            <h4>{{ story.title }}</h4>
+            <p>{{ story.content }}</p>
+    <!-- Add other story details as needed -->
+{% endfor %}
+{% endblock %}
